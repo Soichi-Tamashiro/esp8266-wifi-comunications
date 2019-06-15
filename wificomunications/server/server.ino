@@ -95,20 +95,13 @@ void loop() {
      Serial.print("\t");
      Serial.print(y);
      Serial.print("\t");
-     Serial.println(z);
+     Serial.print(z);
+     Serial.println('\r');
 //----------------------------------------------------------------
 // Envio de datos por wifi
 //----------------------------------------------------------------
-//  String request = client.readStringUntil('\r');
-//  client.flush();
-//  Serial.println("********************************");
-//  Serial.println("From the station: " + request);
-//  if (request=="angle"){
-//    Serial.print("Byte sent to the station: ");
-//    Serial.print(client.print(String(x, 2) + "\r"));
-//    client.flush();
-//  }
-//
+     Serial.println(client.println("ypr\t"+String(x, 2)+"\t"+String(y, 2)+"\t"+String(z, 2)+"\t"+'\r'));
+
 //  client.stop();
   delay(400);
 }
